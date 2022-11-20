@@ -40,7 +40,7 @@ class MenuTableViewController: UITableViewController {
        
         tableView.rowHeight = 200  //調整cell的大小
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(MenuTableViewCell.self)", for: indexPath)as! MenuTableViewCell
-       let data = drinkData?.records[indexPath.row].fields
+        let data = drinkData?.records[indexPath.row].fields
         
         
         if data?.category == "紅茶經典" {
