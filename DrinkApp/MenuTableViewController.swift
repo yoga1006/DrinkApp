@@ -100,10 +100,10 @@ class MenuTableViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  //  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "show", sender: nil)
-    }
+ //       performSegue(withIdentifier: "show", sender: nil)
+  //  }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as? OrderTableViewCell
@@ -115,11 +115,6 @@ class MenuTableViewController: UITableViewController {
             performSegue(withIdentifier: "show", sender: nil)
         
     }
-    
-
-        
-    
-
     
 }
     
