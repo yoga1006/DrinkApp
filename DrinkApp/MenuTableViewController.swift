@@ -100,27 +100,27 @@ class MenuTableViewController: UITableViewController {
         
     }
     
-  //  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   // override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
- //       performSegue(withIdentifier: "show", sender: nil)
-  //  }
+    //    performSegue(withIdentifier: "show", sender: nil)
+    //}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as? OrderTableViewCell
+        let controller = segue.destination as? OrderViewController
         
         if let row = tableView.indexPathForSelectedRow?.row{
-           
+      
             controller?.orderDrinkName.text = drinkData?.records[row].fields.name
             controller?.orderDrinkPrice.text = drinkData?.records[row].fields.pricel
             performSegue(withIdentifier: "show", sender: nil)
         
-    }
-    
+        }
 }
     
-    
-    @IBSegueAction func showDetail(_ coder: NSCoder) -> OrderTableViewController? {
-        return OrderTableViewController(coder: coder)
+ 
+    @IBSegueAction func showDetail(_ coder: NSCoder) -> OrderViewController? {
+        
+        return OrderViewController(coder: coder)
     }
     /*
     // Override to support conditional editing of the table view.
