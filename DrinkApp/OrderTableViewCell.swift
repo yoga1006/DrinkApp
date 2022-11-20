@@ -1,24 +1,22 @@
 //
-//  MenuTableViewCell.swift
+//  OrderTableViewCell.swift
 //  DrinkApp
 //
-//  Created by Yoga on 2022/11/5.
+//  Created by Yoga on 2022/11/20.
 //
 
 import UIKit
 
-class MenuTableViewCell: UITableViewCell {
+class OrderTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var drinkSegment: UISegmentedControl!
-    @IBOutlet weak var drinkName: UILabel!
-    @IBOutlet weak var drinkCountry: UILabel!
-    @IBOutlet weak var drinkDescription: UILabel!
+    @IBOutlet weak var orderDrinkName: UILabel!
+    
+    @IBOutlet weak var orderDrinkPrice: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

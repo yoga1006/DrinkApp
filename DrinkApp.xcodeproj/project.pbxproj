@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04645E6C292A0CB600CA3734 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E6B292A0CB600CA3734 /* OrderTableViewCell.swift */; };
+		04B4CBE9292A027300602D1C /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4CBE8292A027300602D1C /* OrderTableViewController.swift */; };
 		04BD95A329163B5100783966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95A229163B5100783966 /* AppDelegate.swift */; };
 		04BD95A529163B5100783966 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95A429163B5100783966 /* SceneDelegate.swift */; };
 		04BD95AA29163B5100783966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BD95A829163B5100783966 /* Main.storyboard */; };
@@ -14,12 +16,13 @@
 		04BD95AF29163B5300783966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BD95AD29163B5300783966 /* LaunchScreen.storyboard */; };
 		04BD95B929163C7900783966 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95B829163C7900783966 /* LoginViewController.swift */; };
 		04BD95BB29163CD300783966 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95BA29163CD300783966 /* MenuTableViewController.swift */; };
-		04BD95BD29163CE600783966 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95BC29163CE600783966 /* OrderTableViewController.swift */; };
 		04BD95BF29163EAA00783966 /* DrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95BE29163EAA00783966 /* DrinkData.swift */; };
 		04BD95C129164A8B00783966 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95C029164A8B00783966 /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04645E6B292A0CB600CA3734 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		04B4CBE8292A027300602D1C /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderTableViewController.swift; path = ../OrderTableViewController.swift; sourceTree = "<group>"; };
 		04BD959F29163B5100783966 /* DrinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BD95A229163B5100783966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BD95A429163B5100783966 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		04BD95B029163B5300783966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04BD95B829163C7900783966 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04BD95BA29163CD300783966 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
-		04BD95BC29163CE600783966 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		04BD95BE29163EAA00783966 /* DrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkData.swift; sourceTree = "<group>"; };
 		04BD95C029164A8B00783966 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +70,8 @@
 				04BD95A429163B5100783966 /* SceneDelegate.swift */,
 				04BD95A829163B5100783966 /* Main.storyboard */,
 				04BD95BE29163EAA00783966 /* DrinkData.swift */,
-				04BD95BC29163CE600783966 /* OrderTableViewController.swift */,
+				04B4CBE8292A027300602D1C /* OrderTableViewController.swift */,
+				04645E6B292A0CB600CA3734 /* OrderTableViewCell.swift */,
 				04BD95BA29163CD300783966 /* MenuTableViewController.swift */,
 				04BD95C029164A8B00783966 /* MenuTableViewCell.swift */,
 				04BD95B829163C7900783966 /* LoginViewController.swift */,
@@ -151,7 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BD95BB29163CD300783966 /* MenuTableViewController.swift in Sources */,
-				04BD95BD29163CE600783966 /* OrderTableViewController.swift in Sources */,
+				04B4CBE9292A027300602D1C /* OrderTableViewController.swift in Sources */,
+				04645E6C292A0CB600CA3734 /* OrderTableViewCell.swift in Sources */,
 				04BD95C129164A8B00783966 /* MenuTableViewCell.swift in Sources */,
 				04BD95BF29163EAA00783966 /* DrinkData.swift in Sources */,
 				04BD95B929163C7900783966 /* LoginViewController.swift in Sources */,
