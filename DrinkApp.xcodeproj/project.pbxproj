@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		04645E6E292A2A4300CA3734 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E6D292A2A4300CA3734 /* OrderViewController.swift */; };
+		04645E70293AFF1B00CA3734 /* ShoppingcartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E6F293AFF1B00CA3734 /* ShoppingcartTableViewController.swift */; };
+		04645E72293AFF5300CA3734 /* ShoppingcartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E71293AFF5300CA3734 /* ShoppingcartTableViewCell.swift */; };
+		04645E74293B198500CA3734 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E73293B198500CA3734 /* MenuViewController.swift */; };
+		04645E76293B19DD00CA3734 /* Page1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E75293B19DD00CA3734 /* Page1TableViewCell.swift */; };
+		04645E78293B19F000CA3734 /* Page2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E77293B19F000CA3734 /* Page2TableViewCell.swift */; };
+		04645E7A293B19FB00CA3734 /* Page3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E79293B19FB00CA3734 /* Page3TableViewCell.swift */; };
+		04645E7C293B1A1100CA3734 /* Page1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E7B293B1A1100CA3734 /* Page1TableViewController.swift */; };
+		04645E7E293B1A1C00CA3734 /* Page2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E7D293B1A1C00CA3734 /* Page2TableViewController.swift */; };
+		04645E80293B1A2600CA3734 /* Page3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645E7F293B1A2600CA3734 /* Page3TableViewController.swift */; };
 		04BD95A329163B5100783966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95A229163B5100783966 /* AppDelegate.swift */; };
 		04BD95A529163B5100783966 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95A429163B5100783966 /* SceneDelegate.swift */; };
 		04BD95AA29163B5100783966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BD95A829163B5100783966 /* Main.storyboard */; };
@@ -21,6 +30,15 @@
 
 /* Begin PBXFileReference section */
 		04645E6D292A2A4300CA3734 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		04645E6F293AFF1B00CA3734 /* ShoppingcartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingcartTableViewController.swift; sourceTree = "<group>"; };
+		04645E71293AFF5300CA3734 /* ShoppingcartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingcartTableViewCell.swift; sourceTree = "<group>"; };
+		04645E73293B198500CA3734 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		04645E75293B19DD00CA3734 /* Page1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1TableViewCell.swift; sourceTree = "<group>"; };
+		04645E77293B19F000CA3734 /* Page2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2TableViewCell.swift; sourceTree = "<group>"; };
+		04645E79293B19FB00CA3734 /* Page3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3TableViewCell.swift; sourceTree = "<group>"; };
+		04645E7B293B1A1100CA3734 /* Page1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1TableViewController.swift; sourceTree = "<group>"; };
+		04645E7D293B1A1C00CA3734 /* Page2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2TableViewController.swift; sourceTree = "<group>"; };
+		04645E7F293B1A2600CA3734 /* Page3TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3TableViewController.swift; sourceTree = "<group>"; };
 		04BD959F29163B5100783966 /* DrinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BD95A229163B5100783966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BD95A429163B5100783966 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +85,15 @@
 				04BD95A229163B5100783966 /* AppDelegate.swift */,
 				04BD95A429163B5100783966 /* SceneDelegate.swift */,
 				04BD95A829163B5100783966 /* Main.storyboard */,
+				04645E75293B19DD00CA3734 /* Page1TableViewCell.swift */,
+				04645E77293B19F000CA3734 /* Page2TableViewCell.swift */,
+				04645E79293B19FB00CA3734 /* Page3TableViewCell.swift */,
+				04645E7B293B1A1100CA3734 /* Page1TableViewController.swift */,
+				04645E7D293B1A1C00CA3734 /* Page2TableViewController.swift */,
+				04645E7F293B1A2600CA3734 /* Page3TableViewController.swift */,
+				04645E73293B198500CA3734 /* MenuViewController.swift */,
+				04645E6F293AFF1B00CA3734 /* ShoppingcartTableViewController.swift */,
+				04645E71293AFF5300CA3734 /* ShoppingcartTableViewCell.swift */,
 				04BD95BE29163EAA00783966 /* DrinkData.swift */,
 				04645E6D292A2A4300CA3734 /* OrderViewController.swift */,
 				04BD95BA29163CD300783966 /* MenuTableViewController.swift */,
@@ -150,11 +177,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04645E80293B1A2600CA3734 /* Page3TableViewController.swift in Sources */,
+				04645E7C293B1A1100CA3734 /* Page1TableViewController.swift in Sources */,
+				04645E76293B19DD00CA3734 /* Page1TableViewCell.swift in Sources */,
+				04645E78293B19F000CA3734 /* Page2TableViewCell.swift in Sources */,
 				04BD95BB29163CD300783966 /* MenuTableViewController.swift in Sources */,
+				04645E74293B198500CA3734 /* MenuViewController.swift in Sources */,
+				04645E70293AFF1B00CA3734 /* ShoppingcartTableViewController.swift in Sources */,
 				04BD95C129164A8B00783966 /* MenuTableViewCell.swift in Sources */,
+				04645E7A293B19FB00CA3734 /* Page3TableViewCell.swift in Sources */,
 				04BD95BF29163EAA00783966 /* DrinkData.swift in Sources */,
 				04BD95B929163C7900783966 /* LoginViewController.swift in Sources */,
 				04BD95A329163B5100783966 /* AppDelegate.swift in Sources */,
+				04645E7E293B1A1C00CA3734 /* Page2TableViewController.swift in Sources */,
+				04645E72293AFF5300CA3734 /* ShoppingcartTableViewCell.swift in Sources */,
 				04BD95A529163B5100783966 /* SceneDelegate.swift in Sources */,
 				04645E6E292A2A4300CA3734 /* OrderViewController.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var drinkName: UILabel!
     @IBOutlet weak var drinkCountry: UILabel!
     @IBOutlet weak var drinkDescription: UILabel!
+    @IBOutlet weak var drinkPriceMorL: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

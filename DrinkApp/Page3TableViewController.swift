@@ -1,20 +1,17 @@
 //
-//  MenuTableViewController.swift
+//  Page3TableViewController.swift
 //  DrinkApp
 //
-//  Created by Yoga on 2022/11/5.
+//  Created by Yoga on 2022/12/3.
 //
 
 import UIKit
 
-
-class MenuTableViewController: UITableViewController {
+class Page3TableViewController: UITableViewController {
     var drinkData : DrinkData?
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
         getDrinkData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,53 +29,12 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       return drinkData?.records.count ?? 0
-        
+        return drinkData?.records.count ?? 0
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        tableView.rowHeight = 200  //調整cell的大小
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(MenuTableViewCell.self)", for: indexPath)as! MenuTableViewCell
-        let data = drinkData?.records[indexPath.row].fields
-        
-        
-        if data?.category == "紅茶經典" {
-            cell.drinkSegment.selectedSegmentIndex = 0
-            cell.drinkName.text = data?.name
-            cell.drinkCountry.text = data?.country
-            cell.drinkDescription.text = data?.description
-            cell.drinkPriceMorL.text = data?.pricem
-            return cell
-        }else if data?.category == "紅茶那堤"{
-            cell.drinkSegment.selectedSegmentIndex = 1
-            cell.drinkName.text = data?.name
-            cell.drinkCountry.text = data?.country
-            cell.drinkDescription.text = data?.description
-            cell.drinkPriceMorL.text = data?.pricem
-            return cell
-        }else{
-            cell.drinkSegment.selectedSegmentIndex = 2
-            cell.drinkName.text = data?.name
-            cell.drinkCountry.text = data?.country
-            cell.drinkDescription.text = data?.description
-            cell.drinkPriceMorL.text = data?.pricem
-            if data?.pricem == nil{
-                cell.drinkPriceMorL.text = data?.pricel
-            }
-            
 
-            return cell
-        }
-        
-    
-        
-    }
-       
-    
     func getDrinkData(){
         
-        if let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/Projects"){
+        if let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/menu3"){
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("Bearer key4MJhNePdp5IyUC", forHTTPHeaderField: "Authorization")
@@ -108,25 +64,31 @@ class MenuTableViewController: UITableViewController {
         
     }
     
-   // override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    //    performSegue(withIdentifier: "show", sender: nil)
-    //}
     
-  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   //     let controller = segue.destination as? OrderViewController
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.rowHeight = 170  //調整cell的大小
         
-    //    if let row = tableView.indexPathForSelectedRow?.row{
-      
-      //      controller?.orderDrinkName.text = drinkData?.records[row].fields.name
-       //     controller?.orderDrinkPrice.text = drinkData?.records[row].fields.pricel
-          //  performSegue(withIdentifier: "show", sender: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(Page3TableViewCell.self)", for: indexPath)as! Page3TableViewCell
+        let data = drinkData?.records[indexPath.row].fields
         
-       // }
-//}
+        cell.drinkName3Label.text = data?.name
+        cell.drinkCountry3Label.text = data?.country
+        cell.drinkDescription3Label.text = data?.description
+        cell.drinkPrice3Label.text = data?.pricem
+        if data?.pricem == nil{
+            cell.drinkPrice3Label.text = data?.pricel
+        }
+        return cell
+    }
     
- 
-
+    @IBSegueAction func showDetail(_ coder: NSCoder) -> OrderViewController? {
+        guard let row = tableView.indexPathForSelectedRow?.row else{return nil}
+        
+        return OrderViewController(coder: coder , menuinfo:drinkData! , indexPath:row)
+    }
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -162,8 +124,14 @@ class MenuTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

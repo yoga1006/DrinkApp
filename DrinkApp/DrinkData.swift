@@ -24,7 +24,7 @@ struct Fields:Codable{
     let hotprice:String?
     let hot:Bool?
     let description:String
-    let princem:String?
+    let pricem:String?
     let bubble:Bool?
     let category:String
     let name:String
