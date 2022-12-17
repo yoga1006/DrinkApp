@@ -10,6 +10,15 @@ import UIKit
 class ShoppingcartTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var finalNameLabel: UILabel!
+    
+    @IBOutlet weak var finalDrinkLabel: UILabel!
+    
+    @IBOutlet weak var finalPriceLabel: UILabel!
+    
+    @IBOutlet weak var finalSugarLabel: UILabel!
+    
+    @IBOutlet weak var finalIceLabel: UILabel!
     
 
     override func awakeFromNib() {

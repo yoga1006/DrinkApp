@@ -1,5 +1,5 @@
 //
-//  Page3TableViewController.swift
+//  Page1TableViewController.swift
 //  DrinkApp
 //
 //  Created by Yoga on 2022/12/3.
@@ -7,12 +7,15 @@
 
 import UIKit
 
-class Page3TableViewController: UITableViewController {
+class Page1TableViewController: UITableViewController {
     var drinkData : DrinkData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getDrinkData()
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,9 +35,10 @@ class Page3TableViewController: UITableViewController {
         return drinkData?.records.count ?? 0
     }
 
+    
     func getDrinkData(){
         
-        if let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/menu3"){
+        if let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/menu1"){
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("Bearer key4MJhNePdp5IyUC", forHTTPHeaderField: "Authorization")
@@ -64,19 +68,19 @@ class Page3TableViewController: UITableViewController {
         
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         tableView.rowHeight = 170  //調整cell的大小
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(Page3TableViewCell.self)", for: indexPath)as! Page3TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(Page1TableViewCell.self)", for: indexPath)as! Page1TableViewCell
         let data = drinkData?.records[indexPath.row].fields
         
-        cell.drinkName3Label.text = data?.name
-        cell.drinkCountry3Label.text = data?.country
-        cell.drinkDescription3Label.text = data?.description
-        cell.drinkPrice3Label.text = data?.pricem
+        cell.drinkName1Label.text = data?.name
+        cell.drinkCountry1Label.text = data?.country
+        cell.drinkDescription1Label.text = data?.description
+        cell.drinkPrice1Label.text = data?.pricem
         if data?.pricem == nil{
-            cell.drinkPrice3Label.text = data?.pricel
+            cell.drinkPrice1Label.text = data?.pricel
         }
         return cell
     }
@@ -87,6 +91,7 @@ class Page3TableViewController: UITableViewController {
         return OrderViewController(coder: coder , menuinfo:drinkData! , indexPath:row)
     }
     
+
     
     
     /*

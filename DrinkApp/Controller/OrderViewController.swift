@@ -20,6 +20,12 @@ class OrderViewController: UIViewController {
     
     //總金額
     var finalPrice =  0
+    //糖度
+    var finalsugar = ""
+    //冰量
+    var finalice = ""
+    //尺寸
+    var finalsize = ""
     
     @IBOutlet weak var orderDrinkName: UILabel!
     @IBOutlet weak var orderDrinkPrice: UILabel!
@@ -27,6 +33,7 @@ class OrderViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var sizeChangeSegmentControl: UISegmentedControl!
     @IBOutlet weak var iceSegmentControl: UISegmentedControl!
+    @IBOutlet weak var sugarSegmentControl: UISegmentedControl!
     @IBOutlet weak var hotSwitch: UISwitch!
     @IBOutlet weak var bubbleSwitch: UISwitch!
     
@@ -60,6 +67,8 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        postOrder()
+        
         orderBackgroundImageView1.layer.cornerRadius = 30
         orderBackgroundImageView2.layer.cornerRadius = 20
         
@@ -79,11 +88,11 @@ class OrderViewController: UIViewController {
         }else{
             bubbleSwitch.isHidden=true
         }
-        
-        
         // Do any additional setup after loading the view.
         
     }
+    
+    
     
 
     @IBAction func sizeMorL(_ sender: UISegmentedControl) {
@@ -135,6 +144,106 @@ class OrderViewController: UIViewController {
     }
     
     
+    @IBAction func changeSugar(_ sender: UISegmentedControl) {
+        if sugarSegmentControl.selectedSegmentIndex==0{
+            finalsugar="無糖"
+        }else if sugarSegmentControl.selectedSegmentIndex==1{
+            finalsugar="微糖"
+        }else if sugarSegmentControl.selectedSegmentIndex==2{
+            finalsugar="少糖"
+        }else {
+            finalsugar="全糖"
+        }
+    }
+    
+    
+    @IBAction func changeIce(_ sender: UISegmentedControl) {
+        if iceSegmentControl.selectedSegmentIndex==0{
+            finalice="去冰"
+        }else if iceSegmentControl.selectedSegmentIndex==1{
+            finalice="微冰"
+        }else if sugarSegmentControl.selectedSegmentIndex==2{
+            finalice="少冰"
+        }else {
+            finalice="正常"
+        }
+    }
+    
+    
+    @IBAction func changeSize(_ sender: UISegmentedControl) {
+        if sizeChangeSegmentControl.selectedSegmentIndex==0{
+            finalsize="中杯"
+        }else{
+            finalsize="大杯"
+        }
+    }
+    
+    @IBAction func checkOrder(_ sender: Any) {
+        if nameTextField.text == ""{
+            let controller = UIAlertController(title: "訂購人姓名空白", message: "請輸入訂購人姓名", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default)
+            controller.addAction(action)
+            present(controller, animated: true)
+        }else{
+        postOrder()
+        // 顯示訂購成功的 Alert
+        let controller = UIAlertController(title: nil, message: "訂購成功！", preferredStyle: .alert)
+    
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(controller, animated: true ,completion: nil)
+        
+       
+        }
+        
+    }
+    
+    func postOrder(){
+        //抓取飲料設定的條件
+        let ordername = nameTextField.text
+        
+        let drinkname = drinkName
+        
+        let size = finalsize
+        
+        let sugar = finalsugar
+        
+        let ice = finalice
+        
+       
+        //上傳飲料資料
+        let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/order")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer key4MJhNePdp5IyUC", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        
+        let orderItem = OrderItem(orderName: ordername!, orderDrink: drinkname, orderSize: size, orderSugar: sugar, orderIce: ice)
+        let postrecord = Postrecord(fields: orderItem)
+        
+        //將欲上傳資料進行編碼
+                if let data = try? encoder.encode(postrecord){
+                    //資料帶入httpBody
+                    request.httpBody = data
+                    URLSession.shared.dataTask(with: request) { data, response, error in
+                        //檢查上傳的JSON印出字串
+                        if let data = data,
+                           let content = String(data: data, encoding: .utf8){
+                           print(content)
+                            
+                        }
+                        else{
+                            print(error!)
+                        }
+                    }.resume()
+        
+        }
+        
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -145,4 +254,6 @@ class OrderViewController: UIViewController {
     }
     */
 
+
+    }
 }

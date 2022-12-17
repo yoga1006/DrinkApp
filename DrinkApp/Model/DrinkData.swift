@@ -7,6 +7,7 @@
 
 import Foundation
 //讀取資料
+//飲料資料下載
 //第一層
 struct DrinkData:Codable{
     let records:[StoreItem]
