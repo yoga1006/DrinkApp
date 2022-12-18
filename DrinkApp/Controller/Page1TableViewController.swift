@@ -13,9 +13,6 @@ class Page1TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getDrinkData()
-        
-        
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +32,7 @@ class Page1TableViewController: UITableViewController {
         return drinkData?.records.count ?? 0
     }
 
-    
+    //抓取資料
     func getDrinkData(){
         
         if let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/menu1"){
@@ -64,8 +61,6 @@ class Page1TableViewController: UITableViewController {
                 
             }.resume()
         }
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

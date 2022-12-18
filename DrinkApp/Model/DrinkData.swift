@@ -5,6 +5,7 @@
 //  Created by Yoga on 2022/11/5.
 //
 
+//Model:DrinkData
 import Foundation
 //讀取資料
 //飲料資料下載

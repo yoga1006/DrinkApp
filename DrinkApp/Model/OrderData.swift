@@ -7,7 +7,7 @@
 
 import Foundation
 
-//訂單下載、上傳
+//訂單上傳
 struct OrderResponse :Codable {
     
     let records :[Records]
@@ -16,7 +16,7 @@ struct OrderResponse :Codable {
 struct Records :Codable {
     
     //根據 id 去刪除
-    let id :String
+   // let id :String
     let fields :OrderItem
 }
 
@@ -30,7 +30,7 @@ struct OrderItem :Codable {
     
 }
 
-struct Postrecord :Codable{
+//struct Postrecord :Codable{
     
-    var fields :OrderItem
-}
+  //  var fields :OrderItem
+//}

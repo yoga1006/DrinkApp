@@ -67,8 +67,6 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postOrder()
-        
         orderBackgroundImageView1.layer.cornerRadius = 30
         orderBackgroundImageView2.layer.cornerRadius = 20
         
@@ -94,7 +92,7 @@ class OrderViewController: UIViewController {
     
     
     
-
+    //中杯大杯
     @IBAction func sizeMorL(_ sender: UISegmentedControl) {
         
         if sizeChangeSegmentControl.selectedSegmentIndex == 0{
@@ -105,7 +103,7 @@ class OrderViewController: UIViewController {
         }
     }
     
-    
+    //熱飲
     @IBAction func hotOrNot(_ sender: UISwitch) {
         if hotSwitch.isOn{
             iceSegmentControl.isHidden = true
@@ -125,7 +123,7 @@ class OrderViewController: UIViewController {
     }
     
     
-    
+    //加珍珠
     @IBAction func addBubble(_ sender: UISwitch) {
         
         if bubbleSwitch.isOn == true{
@@ -143,7 +141,7 @@ class OrderViewController: UIViewController {
         
     }
     
-    
+    //糖度設定
     @IBAction func changeSugar(_ sender: UISegmentedControl) {
         if sugarSegmentControl.selectedSegmentIndex==0{
             finalsugar="無糖"
@@ -156,7 +154,7 @@ class OrderViewController: UIViewController {
         }
     }
     
-    
+    //冰量設定
     @IBAction func changeIce(_ sender: UISegmentedControl) {
         if iceSegmentControl.selectedSegmentIndex==0{
             finalice="去冰"
@@ -169,7 +167,7 @@ class OrderViewController: UIViewController {
         }
     }
     
-    
+    //中杯大杯設定
     @IBAction func changeSize(_ sender: UISegmentedControl) {
         if sizeChangeSegmentControl.selectedSegmentIndex==0{
             finalsize="中杯"
@@ -178,7 +176,9 @@ class OrderViewController: UIViewController {
         }
     }
     
+    //確認是否有資料輸入完全
     @IBAction func checkOrder(_ sender: Any) {
+    
         if nameTextField.text == ""{
             let controller = UIAlertController(title: "訂購人姓名空白", message: "請輸入訂購人姓名", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default)
@@ -192,7 +192,7 @@ class OrderViewController: UIViewController {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(controller, animated: true ,completion: nil)
-        
+            
        
         }
         
@@ -210,40 +210,29 @@ class OrderViewController: UIViewController {
         
         let ice = finalice
         
-       
-        //上傳飲料資料
+        
         let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/order")!
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
         request.setValue("Bearer key4MJhNePdp5IyUC", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         let encoder = JSONEncoder()
         
-        let orderItem = OrderItem(orderName: ordername!, orderDrink: drinkname, orderSize: size, orderSugar: sugar, orderIce: ice)
-        let postrecord = Postrecord(fields: orderItem)
+        let orderresponse = OrderResponse(records: [.init(fields: OrderItem.init(orderName:ordername!, orderDrink:drinkname , orderSize: size, orderSugar: sugar, orderIce:ice ))])
+        let data = try? encoder.encode(orderresponse)
+        request.httpBody=data
         
-        //將欲上傳資料進行編碼
-                if let data = try? encoder.encode(postrecord){
-                    //資料帶入httpBody
-                    request.httpBody = data
-                    URLSession.shared.dataTask(with: request) { data, response, error in
-                        //檢查上傳的JSON印出字串
-                        if let data = data,
-                           let content = String(data: data, encoding: .utf8){
-                           print(content)
-                            
-                        }
-                        else{
-                            print(error!)
-                        }
-                    }.resume()
-        
-        }
-        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data,
+                   let content = String(data: data, encoding: .utf8) {
+                    print(content)
+            }
+            }.resume()
+    
+    }
     
     
-    
+        
     /*
     // MARK: - Navigation
 
@@ -256,4 +245,5 @@ class OrderViewController: UIViewController {
 
 
     }
-}
+
+
