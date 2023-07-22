@@ -20,10 +20,14 @@ class ShoppingcartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var finalIceLabel: UILabel!
     
-
+    @IBOutlet weak var finalBubbleLabel: UILabel!
+    
+    @IBOutlet weak var finalSizeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

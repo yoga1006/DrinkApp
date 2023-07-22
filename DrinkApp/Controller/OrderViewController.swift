@@ -21,11 +21,13 @@ class OrderViewController: UIViewController {
     //總金額
     var finalPrice =  0
     //糖度
-    var finalsugar = ""
+    var finalsugar = "無糖"
     //冰量
-    var finalice = ""
+    var finalice = "去冰"
     //尺寸
-    var finalsize = ""
+    var finalsize = "中杯"
+    //珍珠
+    var finalbubble = "不加珍珠"
     
     @IBOutlet weak var orderDrinkName: UILabel!
     @IBOutlet weak var orderDrinkPrice: UILabel!
@@ -127,6 +129,7 @@ class OrderViewController: UIViewController {
     @IBAction func addBubble(_ sender: UISwitch) {
         
         if bubbleSwitch.isOn == true{
+            finalbubble = "加珍珠"
             finalPrice = Int(priceMorL)!+5
             
             if sizeChangeSegmentControl.selectedSegmentIndex == 1 || hotSwitch.isOn == true{
@@ -210,7 +213,10 @@ class OrderViewController: UIViewController {
         
         let ice = finalice
         
+        let bubble = finalbubble
         
+       let price = totalPriceLabel.text!
+       
         let url = URL(string: "https://api.airtable.com/v0/appsKrUpxDjeA04cU/order")!
         var request = URLRequest(url: url)
         request.setValue("Bearer key4MJhNePdp5IyUC", forHTTPHeaderField: "Authorization")
@@ -218,8 +224,11 @@ class OrderViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let encoder = JSONEncoder()
         
-        let orderresponse = OrderResponse(records: [.init(fields: OrderItem.init(orderName:ordername!, orderDrink:drinkname , orderSize: size, orderSugar: sugar, orderIce:ice ))])
-        let data = try? encoder.encode(orderresponse)
+        let orderItems = OrderItem(orderName: ordername!, orderDrink: drinkname, orderSize: size, orderSugar: sugar, orderIce: ice, orderBubble: bubble, orderPrice: price)
+        let drinkOrder = Postrecord(fields: orderItems)
+        
+        let data = try? encoder.encode(drinkOrder)
+    
         request.httpBody=data
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -228,8 +237,8 @@ class OrderViewController: UIViewController {
                     print(content)
             }
             }.resume()
-    
     }
+    
     
     
         
